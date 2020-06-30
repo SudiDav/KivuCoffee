@@ -13,7 +13,7 @@ namespace KivuCoffee.Data.Models
         public string AddressLine1 { get; set; }
 
         [MaxLength(100)]
-        public string AddressLine3 { get; set; }
+        public string AddressLine2 { get; set; }
 
         [MaxLength(100)]
         public string City { get; set; }
