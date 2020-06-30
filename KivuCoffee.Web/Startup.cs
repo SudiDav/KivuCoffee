@@ -31,7 +31,7 @@ namespace KivuCoffee.Web
             services.AddDbContext<AppDbContext>(opts =>
             {
                 opts.EnableDetailedErrors();
-                opts.UseNpgsql(Configuration.GetConnectionString("Kivu.Dev"));
+                opts.UseSqlServer(Configuration.GetConnectionString("Kivu.Dev"));
             });
         }
 
