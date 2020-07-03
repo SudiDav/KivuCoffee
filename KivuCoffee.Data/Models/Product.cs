@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace KivuCoffee.Data.Models
@@ -17,7 +18,9 @@ namespace KivuCoffee.Data.Models
         [MaxLength(128)]
         public string Description { get; set; }
 
+        [Column(TypeName = "decimal(8, 2)")]
         public decimal Price { get; set; }
+
         public bool IsTaxable { get; set; }
         public bool IsArchive { get; set; }
     }

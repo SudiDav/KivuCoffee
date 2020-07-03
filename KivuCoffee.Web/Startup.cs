@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KivuCoffee.Data;
+using KivuCoffee.Services.Product;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,8 @@ namespace KivuCoffee.Web
                 opts.EnableDetailedErrors();
                 opts.UseSqlServer(Configuration.GetConnectionString("Kivu.Dev"));
             });
+
+            services.AddTransient<IProductService, ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

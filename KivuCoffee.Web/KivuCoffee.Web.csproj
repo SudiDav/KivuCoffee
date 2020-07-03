@@ -20,5 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KivuCoffee.Data\KivuCoffee.Data.csproj" />
+    <ProjectReference Include="..\KivuCoffee.Services\KivuCoffee.Services.csproj" />
   </ItemGroup>
 </Project>
