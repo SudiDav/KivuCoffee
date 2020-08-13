@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using KivuCoffee.Services.Product;
-using Microsoft.AspNetCore.Http;
+using KivuCoffee.Web.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -19,14 +16,17 @@ namespace KivuCoffee.Web.Controllers
         public ProductController(ILogger<ProductController> logger, IProductService productService)
         {
             _logger = logger;
+            _productService = productService;
         }
 
         [HttpGet("/api/product")]
         public ActionResult GetProduct()
         {
             _logger.LogInformation("Getting all Products!");
-            _productService.GetAllProducts();
-            return Ok();
+            var product = _productService.GetAllProducts();
+
+            var productVM = product.Select(ProductMapper.SerializeProductVM);
+            return Ok(productVM);
         }
     }
 }
