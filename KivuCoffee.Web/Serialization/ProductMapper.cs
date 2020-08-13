@@ -3,7 +3,7 @@ using KivuCoffee.Web.ViewModels;
 
 namespace KivuCoffee.Web.Serialization
 {
-    public class ProductMapper
+    public static class ProductMapper
     {
         /// <summary>
         /// Maps Product model to ProductVM view model
@@ -26,7 +26,7 @@ namespace KivuCoffee.Web.Serialization
         }
 
         /// <summary>
-        /// Maps ProductVM viewmodel to Product model
+        /// Maps ProductVM viewmodel to Product data model
         /// </summary>
         /// <param name="product"></param>
         /// <returns></returns>
