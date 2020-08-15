@@ -1,5 +1,6 @@
 ﻿using KivuCoffee.Services.Customer;
 using KivuCoffee.Services.Order;
+using KivuCoffee.Web.Serialization;
 using KivuCoffee.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,10 @@ namespace KivuCoffee.Web.Controllers
         [HttpPost("api/invoice")]
         public ActionResult GenerateNewOrder([FromBody] InvoiceVM invoiceVm)
         {
+            _logger.LogInformation("Generating Invoice");
+            var order = OrderMapper.SerializeInvoiceOrder(invoiceVm);
+            order.Customer = _customerService.GetCustomerById(invoiceVm.CustomerId);
+            _orderService.GenerateOpenOrder(order);
             return Ok();
         }
     }

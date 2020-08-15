@@ -37,7 +37,7 @@ namespace KivuCoffee.Services.Customer
         {
             try
             {
-                _db.Customers.Add(customer);
+                _db.Add(customer);
                 _db.SaveChanges();
                 return new ServiceResponse<Data.Models.Customer>
                 {
