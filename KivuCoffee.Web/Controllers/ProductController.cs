@@ -28,5 +28,13 @@ namespace KivuCoffee.Web.Controllers
             var productVM = product.Select(ProductMapper.SerializeProductVM);
             return Ok(productVM);
         }
+
+        [HttpPatch("api/product/{id}")]
+        public ActionResult ArchiveProduct(int id)
+        {
+            _logger.LogInformation("Archiving Product!");
+            var archiveResult = _productService.ArchiveProduct(id);
+            return Ok(archiveResult);
+        }
     }
 }

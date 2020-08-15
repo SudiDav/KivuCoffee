@@ -1,4 +1,7 @@
 using KivuCoffee.Data;
+using KivuCoffee.Services.Customer;
+using KivuCoffee.Services.Inventory;
+using KivuCoffee.Services.Order;
 using KivuCoffee.Services.Product;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +32,9 @@ namespace KivuCoffee.Web
             });
 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IInventoryService, InventoryService>();
+            services.AddTransient<IOrderService, OrderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

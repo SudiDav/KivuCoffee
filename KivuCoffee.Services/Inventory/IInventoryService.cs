@@ -11,8 +11,6 @@ namespace KivuCoffee.Services.Inventory
 
         public ProductInventory GetProductById(int productId);
 
-        public void CreateSnapshot();
-
         public List<ProductInventorySnapShot> GetSnapShotHistory();
     }
 }

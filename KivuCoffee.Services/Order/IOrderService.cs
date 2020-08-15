@@ -7,7 +7,7 @@ namespace KivuCoffee.Services.Order
     {
         List<SaleOrder> GetOrders();
 
-        ServiceResponse<bool> GenerateInvoiceForOrder(SaleOrder order);
+        ServiceResponse<bool> GenerateOpenOrder(SaleOrder order);
 
         ServiceResponse<bool> MarkFulfilled(int id);
     }
