@@ -5,9 +5,9 @@ namespace KivuCoffee.Services.Order
 {
     public interface IOrderService
     {
-        List<SaleOrder> GetOrders();
+        List<SalesOrder> GetOrders();
 
-        ServiceResponse<bool> GenerateOpenOrder(SaleOrder order);
+        ServiceResponse<bool> GenerateOpenOrder(SalesOrder order);
 
         ServiceResponse<bool> MarkFulfilled(int id);
     }

@@ -19,7 +19,7 @@ namespace KivuCoffee.Data
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductInventory> ProductInventories { get; set; }
         public virtual DbSet<ProductInventorySnapShot> ProductInventorySnapShots { get; set; }
-        public virtual DbSet<SaleOrder> SaleOrders { get; set; }
-        public virtual DbSet<SaleOrderItem> SaleOrderItems { get; set; }
+        public virtual DbSet<SalesOrder> SalesOrders { get; set; }
+        public virtual DbSet<SalesOrderItem> SalesOrderItems { get; set; }
     }
 }

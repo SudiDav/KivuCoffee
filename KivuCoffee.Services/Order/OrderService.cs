@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using KivuCoffee.Data;
 using KivuCoffee.Data.Models;
 using KivuCoffee.Services.Inventory;
@@ -29,8 +28,8 @@ namespace KivuCoffee.Services.Order
             _productService = productService;
         }
 
-        public List<SaleOrder> GetOrders() =>
-            _db.SaleOrders
+        public List<SalesOrder> GetOrders() =>
+            _db.SalesOrders
                 .Include(so => so.Customer)
                     .ThenInclude(customer => customer.PrimaryAddress)
                 .Include(so => so.SaleOrderItems)
@@ -42,7 +41,7 @@ namespace KivuCoffee.Services.Order
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public ServiceResponse<bool> GenerateOpenOrder(SaleOrder order)
+        public ServiceResponse<bool> GenerateOpenOrder(SalesOrder order)
         {
             var now = DateTime.UtcNow;
 
@@ -60,7 +59,7 @@ namespace KivuCoffee.Services.Order
 
             try
             {
-                _db.SaleOrders.Add(order);
+                _db.SalesOrders.Add(order);
                 _db.SaveChanges();
 
                 return new ServiceResponse<bool>
@@ -91,13 +90,13 @@ namespace KivuCoffee.Services.Order
         public ServiceResponse<bool> MarkFulfilled(int id)
         {
             var now = DateTime.UtcNow;
-            var order = _db.SaleOrders.Find(id);
+            var order = _db.SalesOrders.Find(id);
             order.UpdatedOn = now;
             order.IsPaid = true;
 
             try
             {
-                _db.SaleOrders.Update(order);
+                _db.SalesOrders.Update(order);
                 _db.SaveChanges();
 
                 return new ServiceResponse<bool>

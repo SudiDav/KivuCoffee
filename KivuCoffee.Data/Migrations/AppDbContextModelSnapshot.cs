@@ -177,7 +177,7 @@ namespace KivuCoffee.Data.Migrations
                     b.ToTable("ProductInventorySnapShots");
                 });
 
-            modelBuilder.Entity("KivuCoffee.Data.Models.SaleOrder", b =>
+            modelBuilder.Entity("KivuCoffee.Data.Models.SalesOrder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -200,10 +200,10 @@ namespace KivuCoffee.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("SaleOrders");
+                    b.ToTable("SalesOrders");
                 });
 
-            modelBuilder.Entity("KivuCoffee.Data.Models.SaleOrderItem", b =>
+            modelBuilder.Entity("KivuCoffee.Data.Models.SalesOrderItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -216,16 +216,16 @@ namespace KivuCoffee.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SaleOrderId")
+                    b.Property<int?>("SalesOrderId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("SaleOrderId");
+                    b.HasIndex("SalesOrderId");
 
-                    b.ToTable("SaleOrderItems");
+                    b.ToTable("SalesOrderItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -445,22 +445,22 @@ namespace KivuCoffee.Data.Migrations
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("KivuCoffee.Data.Models.SaleOrder", b =>
+            modelBuilder.Entity("KivuCoffee.Data.Models.SalesOrder", b =>
                 {
                     b.HasOne("KivuCoffee.Data.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId");
                 });
 
-            modelBuilder.Entity("KivuCoffee.Data.Models.SaleOrderItem", b =>
+            modelBuilder.Entity("KivuCoffee.Data.Models.SalesOrderItem", b =>
                 {
                     b.HasOne("KivuCoffee.Data.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
-                    b.HasOne("KivuCoffee.Data.Models.SaleOrder", null)
+                    b.HasOne("KivuCoffee.Data.Models.SalesOrder", null)
                         .WithMany("SaleOrderItems")
-                        .HasForeignKey("SaleOrderId");
+                        .HasForeignKey("SalesOrderId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
