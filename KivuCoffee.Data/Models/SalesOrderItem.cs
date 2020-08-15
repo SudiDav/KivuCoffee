@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KivuCoffee.Data.Models
+﻿namespace KivuCoffee.Data.Models
 {
     public class SalesOrderItem
     {
