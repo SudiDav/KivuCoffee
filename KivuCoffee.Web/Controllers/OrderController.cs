@@ -33,5 +33,21 @@ namespace KivuCoffee.Web.Controllers
             _orderService.GenerateOpenOrder(order);
             return Ok();
         }
+
+        [HttpGet("/api/order")]
+        public ActionResult GetOrders()
+        {
+            var orders = _orderService.GetOrders();
+            var orderVm = OrderMapper.SerializeOrdersToViewModels(orders);
+            return Ok(orderVm);
+        }
+
+        [HttpPatch("/api/order/complete/{id}")]
+        public ActionResult GetOrders(int id)
+        {
+            _logger.LogInformation($"Marking order {id} complete!");
+            _orderService.MarkFulfilled(id);
+            return Ok();
+        }
     }
 }
